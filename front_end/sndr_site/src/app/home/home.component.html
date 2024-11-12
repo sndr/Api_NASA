@@ -1,0 +1,16 @@
+<div class="container_head">
+    <div class="search">
+      <img class="nasa_logo" [src]="nasa_IMG">
+      <form class="inside_search" [formGroup]="searchForm" (ngSubmit)="onSubmit()" method="post" >
+        <h1>Search:</h1>
+        <input formControlName="query" type="text" placeholder="Type here...">
+      </form>
+    </div>
+  </div>
+  
+  <div class="container_body">
+    <div class="images">
+      <img #imageElement class="imagens" [src]="nasa_IMG">
+    </div>
+  </div>
+  
