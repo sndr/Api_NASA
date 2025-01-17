@@ -16,9 +16,7 @@ export class HomeComponent {
 
   constructor(private fb: FormBuilder,private router: Router) {
     this.searchForm = this.fb.group({
-      query: [''],
-      image: [false],
-      video: [false]
+      query: ['']
     });
   }
 
@@ -27,6 +25,8 @@ export class HomeComponent {
       this.router.navigate(['/search'], { state: { formData : this.searchForm.value} });
     }
   }
+
+
 
   title = 'NASA';
   nasa_IMG = 'https://cdn.mos.cms.futurecdn.net/baYs9AuHxx9QXeYBiMvSLU.jpg';
