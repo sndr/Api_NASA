@@ -1,4 +1,4 @@
-body {
+body{
     background-color: grey;
     margin: 0; /* Remove a margem padrão do body */
     padding: 0; /* Remove o padding padrão do body */
@@ -21,8 +21,8 @@ body {
     max-width: 100px; /* Limita a largura máxima da logo */
     padding: 4px; /* Espaço interno */
     position: fixed; /* Fixa a logo no topo da tela */
-    top: 10px; /* Distância do topo da tela */
-    left: 10px; /* Distância da borda esquerda da tela */
+    top: 1px; /* Distância do topo da tela */
+    left: 12px; /* Distância da borda esquerda da tela */
     z-index: 1000; /* Garante que a logo fique sobre outros elementos */
 }
 
@@ -87,24 +87,6 @@ p {
     text-align: center;
     color: red;
 }
-
-.container_body button{ /*FIX THE BUTTON*/
-    color: black;
-    display: flex;
-}
-
-.button {
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-
   a {
     text-align: right;
     color: white;

@@ -1,8 +1,73 @@
-h1{
+body{
+    margin: 0;
+    padding: 0;
+    background-color: gray;
+}
+
+// head 
+
+.container_head{
+    margin: 0;
+    padding: 5px;
+}
+.container_head h1{
     color: white;
     text-align: center;
 }
-h3{
+
+
+// info
+
+.container_info h3{
     color: aqua;
     text-align: center;
+    
+}
+// content
+
+.container_content {
+    display: flex;
+    align-items: center;
+    justify-content: center; // Centraliza os itens
+    gap: 20px; // Adiciona um espaço entre paço entre os itens
+}
+
+// .container_img img:hover{
+//     transform: scale(1.1);
+// }
+
+// about 
+.container_about p{
+    color: white;
+    font-size: 1.5rem; 
+    
+}
+
+// projects
+
+.container_projects{
+    margin: 0 auto;
+    padding: 5px;
+}
+
+
+.container_projects nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%; 
+    height: 17vh;
+}
+.container_projects nav a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+.container_projects nav a:hover{
+    background-color: black;
+    color: white;
+    transform: scale(1.1);
 }
