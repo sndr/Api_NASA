@@ -1,5 +1,5 @@
 body{
-    background-color: grey;
+    background-color: rgb(16, 15, 15);
     margin: 0; /* Remove a margem padrão do body */
     padding: 0; /* Remove o padding padrão do body */
 }
@@ -76,6 +76,8 @@ body{
     margin: 10px; /* Adiciona margem ao redor da imagem */
     display: flex; /* Adiciona 'flex' para suportar alinhamento de itens */
     justify-content: center; /* Centraliza a imagem horizontalmente dentro do seu contêiner */
+    
+    
 }
 
 p {
@@ -85,10 +87,27 @@ p {
 }
 .container_body h3{
     text-align: center;
-    color: red;
+    color: rgb(8, 0, 255);
 }
   a {
     text-align: right;
     color: white;
     padding: 4px;
+    border: 1px solid black;
+    border-radius: 4px ;
+    background-color: rgb(90, 16, 75);
+    text-decoration: none;
+    margin: 2px;
+  }
+
+  a:hover {
+    text-align: right;
+    color: white;
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 4px ;
+    background-color: rgb(90, 16, 75);
+    text-decoration: none;
+    margin: 2px;
+    font-size: 120%;
   }

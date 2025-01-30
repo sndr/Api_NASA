@@ -1,24 +1,27 @@
 <body>
-<div style="text-align: center; margin: 20px;">
-  <h1 style="color: black; padding: 10px;">{{ Q }}</h1>
-
-  <div id="content" style="display: flex; flex-wrap: wrap; justify-content: center; padding: 4px;">
+<div class="container">
+  <h1>{{ Q }}</h1>
+  <div id="content">
     @for (item of mediaItems; track item.title) {
-      <div style="margin: 4px; flex: 0 0 calc(33.33% - 8px); box-sizing: border-box;">
+      <div class="container_2">
         @for (link of item.links; track link) {
           @if (link.endsWith('.jpg')) {
             <a [href]="link" target="_blank" rel="noopener noreferrer">
               <img
                 [src]="link"
-                style="width: 80%; border-radius: 8px; display: block; padding: 4px; margin: 4px;height: auto;"
+                style="width: 80%; border-radius: 8px; display: block; padding: 2px; margin: 2px;height: auto;"
               />
             </a>
           }
         }
       </div>
     } @empty {
-      <h1 id="loading">Loading...</h1>
+      <body>
+        <h1 id="loading" style="color: white;">Loading...</h1>
+      </body>
     }
   </div>
 </div>
 </body>
+
+<!-- I HAVE TO IMPROVE DECRESING THE DELAY IN THE PAGE -->
