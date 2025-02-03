@@ -11,4 +11,12 @@ import { Router, RouterOutlet } from '@angular/router';
 export class MadebyComponent {
   constructor(private router: Router) {}
   
+  nasa_IMG = 'https://cdn.mos.cms.futurecdn.net/baYs9AuHxx9QXeYBiMvSLU.jpg';
+
+  goToHome() {
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+  });
+
+  }
 }

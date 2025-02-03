@@ -1,17 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
 body{
     background-color: black;
+}
+.nasa_logo{
+    width: 20%; /* Tamanho da logo */
+    height: auto; /* Mantém a proporção da imagem */
+    max-width: 100px; /* Limita a largura máxima da logo */
+    padding: 4px; /* Espaço interno */
+    position: fixed; /* Fixa a logo no topo da tela */
+    top: 0; /* Distância do topo da tela */
+    left: 12px; /* Distância da borda esquerda da tela */
+    z-index: 1000; /* Garante que a logo fique sobre outros elementos */
+    margin: 20px; /* A margin delfault era 100 ent precisavamos mudar para adptação */
+}
+
+.icon-button {
+    margin-left: 160px;
+    margin-top: 28px;
+    background: none; /* Remove default button background */
+    border: none; /* Remove default button border */
+    padding: 0; /* Remove default button padding */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.icon-button svg:hover {
+    background-color: purple;
+    border-radius: 20%; /* Make the image circular */
 }
 h1{
     color: white;
     text-align: center;
     margin: 20px;
-}
+    font-family: 'Roboto Condensed', sans-serif;}
 img{
     margin-top: 100px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 500px;
     width: 20%;
-    border: purple 2px solid;
-    border-radius: 4px;
+}
+.main_container p, h2{
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+    text-align: center;
 }
