@@ -1,80 +1,83 @@
-body{
+body {
     background-color: rgb(16, 15, 15);
-    margin: 0; /* Remove a margem padrão do body */
-    padding: 0; /* Remove o padding padrão do body */
+    margin: 0;
+    padding: 0;
 }
 
 .container_head {
     background-color: black;
-    display: flex; /* Define o layout flexível */
-    align-items: center; /* Alinha os itens verticalmente no centro */
-    justify-content: space-between; /* Alinha os itens horizontalmente com espaçamento entre eles */
-    padding: 16px; /* Adiciona padding ao redor do conteúdo */
-    position: relative; /* Necessário para posicionar elementos filhos de forma absoluta */
-    width: 100%; /* Garante que a div ocupe toda a largura do contêiner pai */
-    box-sizing: border-box; /* Inclui o padding e a borda na largura total */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
 }
 
 .nasa_logo {
-    width: 20%; /* Tamanho da logo */
-    height: auto; /* Mantém a proporção da imagem */
-    max-width: 100px; /* Limita a largura máxima da logo */
-    padding: 4px; /* Espaço interno */
-    position: fixed; /* Fixa a logo no topo da tela */
-    top: 1px; /* Distância do topo da tela */
-    left: 12px; /* Distância da borda esquerda da tela */
-    z-index: 1000; /* Garante que a logo fique sobre outros elementos */
+    max-width: 80px;
+    width: auto;
+    height: auto;
+    padding: 1%;
+    position: fixed;
+    top: 1px;
+    left: 12px;
+    z-index: 1000;
 }
 
 .search {
     display: flex;
-    flex: 1; /* Faz com que a área de pesquisa ocupe o restante da largura disponível */
-    align-items: center; /* Alinha os itens verticalmente */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    margin-left: 120px; /* Espaço para evitar sobreposição com a logo fixa */
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px;
+    flex-wrap: wrap;
 }
 
 .inside_search {
-    display: flex; /* Usa flexbox para alinhar itens em linha */
-    align-items: center; /* Alinha os itens verticalmente */
-    gap: 20px; /* Espaçamento entre os itens */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.inside_search h1, h3 {
+.inside_search h1,
+h3 {
     color: white;
-    margin: 0; /* Remove margens para melhor alinhamento */
+    margin: 0;
 }
 
 .inside_search input[type="text"] {
-    width: 300px; /* Ajuste o tamanho conforme necessário */
-    height: 20px; /* Ajusta a altura para um tamanho mais confortável com o novo tamanho da fonte */
-    border-radius: 20px; /* Torna o input mais redondo */
-    padding: 10px; /* Adiciona espaçamento interno para um visual mais agradável */
-    border: 1px solid #ccc; /* Define uma borda suave */
-    outline: none; /* Remove o contorno padrão ao focar */
-    font-size: 16px; /* Aumenta o tamanho da fonte */
+    width: 300px;
+    max-width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 16px;
 }
 
 .inside_search input[type="checkbox"] {
-    margin-left: 5px; /* Espaço entre o texto e o checkbox */
+    margin-left: 5px;
 }
 
 .container_body {
-    display: flex; /* Corrige o valor para 'flex' */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Alinha o conteúdo verticalmente */
-    gap: 10px; /* Espaçamento entre os itens dentro do contêiner */
-    flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte se não houver espaço suficiente */
-    padding: 20px; /* Adiciona padding ao redor do conteúdo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 20px;
 }
 
 .imagens {
-    width: 200%; /* Ajusta a largura da imagem */
-    max-width: 100%; /* Limita a largura máxima da imagem */
-    height: auto; /* Mantém a proporção da imagem */
-    margin: 10px; /* Adiciona margem ao redor da imagem */
-    display: flex; /* Adiciona 'flex' para suportar alinhamento de itens */
-    justify-content: center; /* Centraliza a imagem horizontalmente dentro do seu contêiner */
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
 }
 
 p {
@@ -82,34 +85,71 @@ p {
     color: aqua;
     font-size: 200%;
 }
-.container_body h3{
+
+.container_body h3 {
     text-align: center;
     color: rgb(8, 0, 255);
 }
-  a {
+
+a {
     text-align: right;
     color: white;
     padding: 4px;
     border: 1px solid black;
-    border-radius: 4px ;
+    border-radius: 4px;
     background-color: rgb(90, 16, 75);
     text-decoration: none;
     margin: 2px;
-    display: inline-flex; 
+    display: inline-flex;
     transition: transform 0.3s ease, font-size 0.3s ease;
     position: relative;
-  }
+}
 
-  a:hover {
-    transform: scale(1.1); /* Aumenta sem empurrar os outros */
-    text-align: right;
-    color: white;
-    padding: 4px;
-    border: 1px solid black;
-    border-radius: 4px ;
-    background-color: rgb(90, 16, 75);
-    text-decoration: none;
-    margin: 2px;
+a:hover {
+    transform: scale(1.1);
     font-size: 120%;
-    margin-bottom: 0;
-  }
+}
+
+/* 🔽 Responsividade para telas menores */
+@media (max-width: 768px) {
+    .nasa_logo {
+        margin-top: 4%;
+    }
+
+    .search {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .inside_search {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .inside_search input[type="text"] {
+        width: 90%;
+    }
+}
+@media (max-width: 390px) {
+    .nasa_logo {
+        margin-top: 1%;
+    }
+
+    .search {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .inside_search {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .inside_search input[type="text"] {
+        width: 90%;
+    }
+}

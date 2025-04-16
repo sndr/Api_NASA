@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 
-interface MediaLink {// itens manipulation
+interface MediaLink {
   href: string;
 }
 
 interface MediaItem {
-  links: MediaLink[];
-  data: { title: string }[]; // itens manipulation
+  links?: MediaLink[];
+  data: { title?: string }[];
 }
 
 interface ApiResponse {
   collection: {
-    items: MediaItem[];// itens manipulation
+    items: MediaItem[];
   };
 }
 
@@ -23,60 +23,64 @@ interface ApiResponse {
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-
 export class SearchComponent {
   data: any;
-  Q = '';  // value  defined
+  Q: string = '';  
   mediaItems: { links: string[], title: string }[] = [];
 
   constructor(private router: Router) {
+    
     const navigation = this.router.getCurrentNavigation();
-    if (navigation && navigation.extras.state) {
+    if (navigation?.extras.state) {
       this.data = navigation.extras.state['formData'];
-      this.Q = this.data?.query;
+      this.Q = this.data?.query || '';
 
-      this.fetchAllMedia(this.Q);
+      if (this.Q) {
+        this.fetchAllMedia(this.Q.toLowerCase());
+      }
     }
   }
-
+  
+// THIS PART I JUST HAVE TO VERIFY IF THE URL WITH JPG IN THE END IS WORKING OR NOT AND THEN RETURN THE LINKS
   async fetchAllMedia(q: string): Promise<void> {
-    const totalPages = 10; 
-    const mediaItems: { links: string[], title: string }[] = [];
-  
+    const totalPages = 2; // YOU CAN DECREASE THIS NUMBER TO MAKE THE SEARCH FASTER
+
     const fetchPromises = Array.from({ length: totalPages }, async (_, i) => {
-      const url = `https://images-api.nasa.gov/search?q=${q}&page=${i + 1}&media_type=image`; // source from all of the links
-      const response = await fetch(url) ;
-      if (!response.ok) {
-        throw new Error('Erro ao buscar dados da API');
-      }
-      
-      const data: ApiResponse = await response.json();
-      console.log('Dados recebidos da API:', data); 
-  
-      const items = await Promise.all(data.collection.items.map(async (item: MediaItem) => { // filter all of the .jpg
-        const links = item.links ? item.links.map((link: MediaLink) => {
-          return link.href.endsWith('.jpg') ? link.href : null;
-        }) : [];
-  
-      
-        const validLinks = links.filter(link => link !== null); // looking for the title if it doesnt exist return 'titulo não disponivel'
-        const title = item.data[0]?.title || 'Título não disponível'; 
+      try {
+        const url = `https://images-api.nasa.gov/search?q=${encodeURIComponent(q)}&page=${i + 1}&media_type=image&page_size=50`;
+        const response = await fetch(url);
         
-        return { links: validLinks, title };
-      }));
-  
-    
-      return items.filter(item => item.links.length > 0);
+        if (!response.ok) {
+          throw new Error(`Erro na requisição: ${response.status} ${response.statusText}`);
+        }
+        const data: ApiResponse = await response.json();
+
+        return data.collection.items
+          .map((item: MediaItem) => {
+            const links = item.links?.map(link => link.href).filter(href => href?.endsWith('.jpg')) || [];
+            const title = item.data?.[0]?.title || 'Título não disponível';
+            return { links, title };
+          })
+          .filter(item => item.links.length > 0);
+
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+        return [];
+      }
     });
-  
+    
+
     try {
       const results = await Promise.all(fetchPromises);
-      results.forEach(result => mediaItems.push(...result));
-      this.mediaItems = mediaItems.filter(item => item.links.length > 0);
-      
-      console.log('Mídias válidas encontradas:', this.mediaItems); 
+      this.mediaItems = results.flat(); // Ensures proper structure
     } catch (error) {
-      console.error('Erro:', error);
+      console.error('Erro geral:', error);
+      this.mediaItems = [];
     }
   }
-}  
+  goToHome() {
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+  });
+}
+}
