@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
+import { get } from 'http';
 
 @Component({
   selector: 'app-madeby',
@@ -17,6 +18,5 @@ export class MadebyComponent {
     this.router.navigate(['/']).then(() => {
       window.location.reload();
   });
-
-  }
+}
 }

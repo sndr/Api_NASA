@@ -26,8 +26,6 @@ export class HomeComponent {
     }
   }
 
-
-
   title = 'NASA';
   nasa_IMG = 'https://cdn.mos.cms.futurecdn.net/baYs9AuHxx9QXeYBiMvSLU.jpg';
 }

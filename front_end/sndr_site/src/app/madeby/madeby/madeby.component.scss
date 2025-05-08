@@ -1,26 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 body{
-    background-color: black;
+    background-color: grey;
 }
-.nasa_logo{
-    width: 20%; /* Tamanho da logo */
-    height: auto; /* Mantém a proporção da imagem */
-    max-width: 100px; /* Limita a largura máxima da logo */
-    padding: 4px; /* Espaço interno */
-    position: fixed; /* Fixa a logo no topo da tela */
-    top: 0; /* Distância do topo da tela */
-    left: 12px; /* Distância da borda esquerda da tela */
-    z-index: 1000; /* Garante que a logo fique sobre outros elementos */
-    margin: 20px; /* A margin delfault era 100 ent precisavamos mudar para adptação */
+.container{
+    display: grid;
+
+}
+.nasa_logo {
+    max-width: 80px;
+    width: auto;
+    height: auto;
+    padding: 1%;
+    position: fixed;
+    top: 1px;
+    left: 12px;
+    z-index: 1000;
 }
 
+
 .icon-button {
-    margin-left: 160px;
+    margin-left: auto;
+    max-width: 80px;
+    z-index: 1000;
     margin-top: 28px;
     background: none; /* Remove default button background */
     border: none; /* Remove default button border */
-    padding: 0; /* Remove default button padding */
     cursor: pointer; /* Change cursor to pointer */
 }
 
@@ -37,6 +42,7 @@ img{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    max-width: 100%;
 }
 .main_container p{
     color: white;
