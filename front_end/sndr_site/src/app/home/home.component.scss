@@ -2,6 +2,7 @@ body {
     background-color: rgb(16, 15, 15);
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 .container_head {
@@ -44,9 +45,10 @@ body {
 }
 
 .inside_search h1,
-h3 {
+.inside_search h3 {
     color: white;
     margin: 0;
+    font-size: clamp(1rem, 4vw, 1.5rem);
 }
 
 .inside_search input[type="text"] {
@@ -57,7 +59,7 @@ h3 {
     padding: 10px;
     border: 1px solid #ccc;
     outline: none;
-    font-size: 16px;
+    font-size: clamp(14px, 3vw, 16px);
 }
 
 .inside_search input[type="checkbox"] {
@@ -71,30 +73,38 @@ h3 {
     gap: 10px;
     flex-wrap: wrap;
     padding: 20px;
+    margin-top: 100px;
+}
+
+.images {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Increased from 600px to make image larger */
+    margin: 10px;
 }
 
 .imagens {
     width: 100%;
-    max-width: 100%;
     height: auto;
-    margin: 10px;
+    display: block;
 }
 
 p {
     text-align: center;
     color: aqua;
-    font-size: 200%;
+    font-size: clamp(1.5rem, 5vw, 2rem);
 }
 
 .container_body h3 {
     text-align: center;
     color: rgb(8, 0, 255);
+    font-size: clamp(1rem, 4vw, 1.25rem);
 }
 
 a {
-    text-align: right;
+    text-align: center;
     color: white;
-    padding: 4px;
+    padding: 4px 8px;
     border: 1px solid black;
     border-radius: 4px;
     background-color: rgb(90, 16, 75);
@@ -102,7 +112,14 @@ a {
     margin: 2px;
     display: inline-flex;
     transition: transform 0.3s ease, font-size 0.3s ease;
-    position: relative;
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    left: 10px;
+}
+
+a:nth-child(2) {
+    left: 80px; /* Adjusted for larger image */
 }
 
 a:hover {
@@ -110,46 +127,110 @@ a:hover {
     font-size: 120%;
 }
 
-/* 🔽 Responsividade para telas menores */
+/* Responsive Design */
 @media (max-width: 768px) {
+    .container_head {
+        padding: 12px;
+    }
+
     .nasa_logo {
-        margin-top: 4%;
+        max-width: auto;
+        top: 8px;
+        left: 8px;
     }
 
     .search {
-        margin-left: 0;
+        margin-left: 50px;
         width: 100%;
         justify-content: center;
+        padding-top: 60px;
     }
 
     .inside_search {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
     }
 
     .inside_search input[type="text"] {
         width: 90%;
+        height: 20px;
+        font-size: clamp(12px, 3vw, 14px);
+    }
+
+    .container_body {
+        margin-top: 80px;
+        padding: 15px;
+    }
+
+    .images {
+        max-width: 600px; /* Adjusted for tablets */
+    }
+
+    a {
+        padding: 3px 6px;
+        font-size: clamp(12px, 3vw, 14px);
+        top: 8px;
+        left: 8px;
+    }
+
+    a:nth-child(2) {
+        left: 70px;
     }
 }
-@media (max-width: 390px) {
+
+@media (max-width: 480px) {
+    .container_head {
+        padding: 8px;
+    }
+
     .nasa_logo {
-        margin-top: 1%;
+        max-width:auto; 
+        top: 4px;
+        left: 4px;
     }
 
     .search {
-        margin-left: 0;
-        width: 100%;
-        justify-content: center;
+        margin-left: 1px;
+        padding-top: 50px;
     }
 
     .inside_search {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        gap: 8px;
+        height: 20px;
+        width: 40%;
     }
 
     .inside_search input[type="text"] {
-        width: 90%;
+        font-size: clamp(10px, 3vw, 12px);
+    }
+
+    .container_body {
+        margin-top: 60px;
+        padding: 10px;
+    }
+
+    .images {
+        max-width: 400px; /* Adjusted for mobile to prevent overflow */
+        margin: 5px;
+    }
+
+    a {
+        padding: 2px 4px;
+        font-size: clamp(10px, 3vw, 12px);
+        top: 5px;
+        left: 5px;
+    }
+
+    a:nth-child(2) {
+        left: 60px;
+    }
+
+    a:hover {
+        font-size: 110%;
+    }
+
+    p {
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
     }
 }

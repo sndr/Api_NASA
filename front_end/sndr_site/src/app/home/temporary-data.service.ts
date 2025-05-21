@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class TemporaryDataService {
   setData(key: string, data: any): void {
     localStorage.setItem(key, JSON.stringify(data));
